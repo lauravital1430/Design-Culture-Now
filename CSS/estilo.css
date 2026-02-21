@@ -1,0 +1,385 @@
+:root {
+    --negro: #1A1A1A;
+    --grisoscuro: #4D4D4D;
+    --grisclaro: #F4F4F4;
+    --azul: #415A77;
+}
+
+* {
+    font-family: "Urbanist", sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    width: 1366px;
+    height: 200px;
+    background-color: var(--grisclaro);
+    margin: 0 auto;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    padding-top: 30px;
+}
+
+header img {
+    height: 120px;
+}
+
+nav {
+    font-size: 24px;
+    position: sticky;
+    top: 0;
+    width: 1366px;
+    height: 50px;
+    overflow: hidden;
+    background-color: var(--negro);
+    margin: 0 auto;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: var(--grisclaro);
+    text-align: center;
+    text-decoration: none;
+    width: 25%;
+    padding: 15px 20px;
+    /*Ampliar area clickeable*/
+    transition: .5s;
+}
+
+nav a:hover {
+    background-color: var(--grisclaro);
+    color: var(--negro);
+    transform: scale(1.2);
+}
+
+main {
+    width: 1366px;
+    height: auto;
+    background-color: var(--grisclaro);
+    margin: 0 auto;
+    color: var(--negro);
+    background-image: url(../imgs/wallpaper.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.galeria {
+    height: 490px;
+    text-align: center;
+}
+
+.galeria h2 {
+    font-size: 36px;
+    font-weight: 900;
+    padding: 40px;
+}
+
+.galeria h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.galeria a {
+    text-decoration: none;
+    color: var(--negro);
+}
+
+.galeria a:hover {
+    color: var(--azul);
+}
+
+.columna {
+    float: left;
+    padding: 0px 0px 30px 30px;
+    font-size: 18px;
+}
+
+.columnaizquierda {
+    padding-left: 5px;
+}
+
+.titulo {
+    height: 130px;
+    text-align: center;
+    display: flex;
+    color: var(--grisclaro);
+}
+
+.titulo h2 {
+    font-size: 27px;
+    font-weight: 900;
+    margin: 50px 30px 50px 30px;
+}
+
+.nombre {
+    flex: 50%;
+    background-color: var(--negro);
+}
+
+.ocupacion {
+    flex: 50%;
+    background-color: var(--grisoscuro);
+}
+
+.contenedor-padre {
+    height: 700px;
+    width: 1366px;
+    padding: 35px;
+    display: flex;
+}
+
+.columnas-info {
+    height: 100%;
+}
+
+#columna1 {
+    width: 50%;
+}
+
+#columna1 img {
+    width: 630px;
+    height: 630px;
+}
+
+#columna2 {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px 0px 0px;
+}
+
+#columna3 {
+    width: 25%;
+    padding-left: 20px;
+}
+
+#perfil {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.elementos {
+    justify-content: space-evenly;
+}
+
+#recordatorio {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+.elementos h3 em {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+#fecha,
+#perfil {
+    padding: 20px;
+}
+
+.calendario {
+    margin-bottom: 27px;
+}
+
+.calendario img {
+    width: 300px;
+    height: 300px;
+}
+
+.boton {
+    width: 300px;
+    height: 130px;
+    background-color: var(--azul);
+    border: none;
+    color: var(--grisclaro);
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 900;
+    transition: 0.3s;
+    margin-top: auto;
+}
+
+.boton:hover {
+    color: var(--azul);
+    background-color: var(--grisclaro);
+    cursor: pointer;
+}
+
+/*copiadisimo de https://www.w3schools.com/howto/howto_js_snackbar.asp*/
+#snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: var(--grisoscuro);
+    /* Black background color */
+    color: var(--grisclaro);
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+}
+
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.portafolio {
+    height: 390px;
+    padding-top: 35px;
+    align-items: center;
+}
+
+.portafolio img {
+    width: 300px;
+    height: 300px;
+}
+
+.portafolio h4 {
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.frase {
+    height: 200px;
+    align-items: center;
+    background-color: white;
+}
+
+.frase h2 {
+    font-size: 36px;
+    color: var(--grisoscuro);
+    font-style: italic;
+    font-weight: 900;
+    text-align: center;
+    padding: 60px 240px 60px 240px;
+}
+
+.about {
+    display: flex;
+    height: 370px;
+    background-color: var(--grisclaro);
+    padding: 40px;
+    align-items: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.columnas {
+    width: 50%;
+}
+
+footer {
+    width: 1366px;
+    height: 200px;
+    background-color: var(--negro);
+    margin: 0 auto;
+    color: var(--grisclaro);
+    padding: 45px;
+    align-content: center;
+}
+
+.piedepagina {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+footer a {
+    font-size: 14px;
+    padding-top: 10px;
+    color: rgb(255, 240, 240);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+footer img {
+    height: 135px;
+}
